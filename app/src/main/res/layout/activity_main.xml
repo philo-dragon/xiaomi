@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/device_swipe_refresh_widget"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/common_top_black_bg">
+
+        <TextView
+            android:id="@+id/block_guide_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="15.0dip"
+            android:text="米粒攻略"
+            android:textColor="@color/common_textcolor_5_selector"
+            android:textSize="@dimen/common_textsize_2" />
+
+        <LinearLayout
+            android:id="@+id/growth_factor_and_block_record_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="34.0dip"
+            android:gravity="center_vertical"
+            android:minHeight="30.0dip"
+            android:orientation="horizontal"
+            android:paddingLeft="70.0dip"
+            android:paddingRight="70.0dip">
+
+            <LinearLayout
+                android:layout_width="0.0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/growth_factor"
+                    android:textColor="@color/common_textcolor_6"
+                    android:textSize="@dimen/common_textsize_5" />
+
+                <TextView
+                    android:id="@+id/growth_factor_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5.0dip"
+                    android:textColor="@color/common_textcolor_6"
+                    android:textSize="@dimen/common_textsize_5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/block_record_layout"
+                android:layout_width="0.0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/block_record_tv"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="right"
+                    android:paddingRight="4.0dip"
+                    android:text="@string/block_record"
+                    android:textColor="@color/common_textcolor_6_selector"
+                    android:textSize="@dimen/common_textsize_5" />
+
+                <ImageView
+                    android:layout_width="10.0sp"
+                    android:layout_height="10.0sp"
+                    android:alpha="0.5"
+                    android:src="@drawable/common_list_icon_goto" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/block_count_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/growth_factor_and_block_record_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10.0dip"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/block"
+                android:textColor="@color/common_textcolor_6"
+                android:textSize="@dimen/common_textsize_5" />
+
+            <TextView
+                android:id="@+id/block_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:textColor="@color/common_textcolor_5"
+                android:textSize="@dimen/common_textsize_1_x" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/block_count_layout"
+            android:layout_marginTop="12.0dip">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/block_grow_lottie_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="false"
+                app:lottie_fileName="block_grow.json"
+                app:lottie_imageAssetsFolder="block_grow"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:id="@+id/block_grow_desc_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="52.0dip"
+                android:gravity="bottom|center"
+                android:text="生长中"
+                android:textColor="#ff7bc5b9"
+                android:textSize="@dimen/common_textsize_6" />
+
+            <TextView
+                android:id="@+id/block_grow_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="70.0dip"
+                android:gravity="bottom|center"
+                android:textColor="@color/common_textcolor_6"
+                android:textSize="@dimen/common_textsize_6" />
+
+            <RelativeLayout
+                android:id="@+id/block_draw_view_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone">
+
+               <!-- <com.xiaomi.wifichain.block.view.BlockDrawView
+                    android:id="@+id/block_draw_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30.0dip"
+                    android:layout_marginRight="30.0dip" />-->
+            </RelativeLayout>
+        </FrameLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72.0dip"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/speed_up_layout"
+            android:layout_width="0.0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/common_bg_list_item"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/block_speed_up" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/speed_up"
+                    android:textColor="@color/common_textcolor_1"
+                    android:textSize="@dimen/common_textsize_2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2.0dip"
+                    android:text="@string/get_growth_factor"
+                    android:textColor="@color/common_textcolor_2"
+                    android:textSize="@dimen/common_textsize_5" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- <View style="@style/VerticalSeparatorLine" />-->
+
+        <LinearLayout
+            android:id="@+id/exchange_layout"
+            android:layout_width="0.0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/common_bg_list_item"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/block_exchange" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exchange"
+                    android:textColor="@color/common_textcolor_1"
+                    android:textSize="@dimen/common_textsize_2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2.0dip"
+                    android:text="兑换专属回报"
+                    android:textColor="@color/common_textcolor_2"
+                    android:textSize="@dimen/common_textsize_5" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
